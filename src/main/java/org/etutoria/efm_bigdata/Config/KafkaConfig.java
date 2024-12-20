@@ -1,0 +1,19 @@
+package org.etutoria.efm_bigdata.Config;
+
+import org.apache.kafka.clients.admin.NewTopic;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.kafka.config.TopicBuilder;
+
+@Configuration
+public class KafkaConfig {
+    @Bean
+    public NewTopic tmdbTopic() {
+        return TopicBuilder.name("bigdata-tmdb").build();
+    }
+
+    @Bean
+    public NewTopic redditTopic() {
+        return TopicBuilder.name("bigdata-reddit").build();
+    }
+}

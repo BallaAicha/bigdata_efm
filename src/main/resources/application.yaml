@@ -1,0 +1,32 @@
+spring:
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      properties:
+        max.request.size: 100000000
+        buffer.memory: 33554432
+        batch.size: 16384
+    consumer:
+      properties:
+        max.partition.fetch.bytes: 100000000
+        fetch.max.bytes: 100000000
+
+server:
+  port: 8081
+
+reddit:
+  api:
+    url: https://oauth.reddit.com
+    client-id: wpGiH_dLOlngHVfa_ALBKg
+    secret: pZDN0Dwb12El91nS3DbV-fZ6zBk5rQ
+    token-url: https://www.reddit.com/api/v1/access_token
+
+tmdb:
+  api:
+    token: eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkNzcwODM1ZTA0NmZkNmU2ZGRlZmEzMmMyZmM2OWMzOCIsIm5iZiI6MTczMjQ1NzkyOS42MTQzNjgyLCJzdWIiOiI2NTYxZDg1MDM2NzlhMTA5NzdlMDk3YjciLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.YLfsSudjkv0C1FEupYdFHQkNiNNAUPCVPncPXJLCUZU
+    endpoints:
+      genreList: https://api.themoviedb.org/3/genre/movie/list
+      popularMovies: https://api.themoviedb.org/3/movie/popular
+      movieDetails: https://api.themoviedb.org/3/movie/{movie_id}
